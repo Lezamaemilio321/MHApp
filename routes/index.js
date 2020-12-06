@@ -150,8 +150,27 @@ router.post('/purchase', async (req, res) => {
                             return res.status(500).end();
                         }
 
-                        productName = `${serviceItem.name} (${req.body.purchase_info.duration}hrs.)`
-                        productPrice = (serviceItem.price * parseInt(req.body.purchase_info.duration)) * req.body.purchase_info.people;
+                        productName = `${serviceItem.name} (${req.body.purchase_info.duration}hrs.) (Basico)`;
+
+                        let productPrice;
+
+                        if (req.body.purchase_info.duration == 2) {
+
+                            if (firstInputEven == false) {
+                                productPrice = ((((req.body.purchase_info.people - 1) / 2) * 50) * 2) + 50;
+                            } else {
+                                productPrice = ((req.body.purchase_info.people / 2) * 50) * 2;
+                            }
+    
+                        } else if (req.body.purchase_info.duration == 1) {
+            
+                            if (firstInputEven == false) {
+                                productPrice = ((((req.body.purchase_info.people - 1) / 2) * 50) + serviceItem.price);
+                            } else {
+                                productPrice = ((req.body.purchase_info.people / 2) * 50);
+                            }
+    
+                        }
 
                         productPrice = productPrice * 19;
         
@@ -241,7 +260,7 @@ router.post('/purchase', async (req, res) => {
 
 
 
-router.get('/success', (req, res) => {
+router.get('/cancel', (req, res) => {
     res.redirect('/');
 });
 

@@ -379,7 +379,7 @@
 
         for (let inp of inputs) {
 
-            inp.addEventListener('change', (event) => {
+            function changeTotal() {
 
                 const otherInput = inputsArray.find(el => el != event.target);
 
@@ -437,8 +437,6 @@
 
                 }
 
-
-
                 if (event.target.value == 1 && otherInput.value == 1) {
                     total = parseInt(price);
                     total = `USD ${total}/MXN ${total*19}`
@@ -446,7 +444,11 @@
 
 
                 totalElement.textContent = total;
-            });
+
+            }
+            changeTotal();
+
+            inp.addEventListener('change', changeTotal);
 
         }
     }
@@ -471,9 +473,7 @@
 
             totalElement.textContent = total;
 
-
-            inp.addEventListener('change', (event) => {
-
+            function changeTotal() {
                 const firstInputEven = event.target.value % 2 == 0;
 
                 if (!event.target.dataset.serviceInputId) {
@@ -485,7 +485,11 @@
                 total = `USD ${total}/MXN ${total*19}`;
 
                 totalElement.textContent = total;
-            });
+            }
+            changeTotal();
+
+
+            inp.addEventListener('change', changeTotal);
 
         }
     }
