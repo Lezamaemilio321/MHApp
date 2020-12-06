@@ -1,0 +1,217 @@
+<section class="contact-section" id="contact-1">
+
+    <h1>Contactanos</h1>
+
+    <div class="contact-container">
+        <div class="contact-div">
+            
+            <img src="/images/phone.png" class="contact-icon" alt="Telefono">
+
+            <h2>POR TELÉFONO</h2>
+            <h3 class="contact-info">+52 (984) 155 1247</h3>
+            <a class="message-link" href="https://wa.me/529841551247">
+                <button class="contact-button">
+                    <h3 class="message-text">WHATSAPP</h3>
+                </button>
+            </a>
+
+        </div>
+
+        <div class="contact-div">
+            <img src="/images/email.png" class="contact-icon" alt="Telefono">
+
+            <h2>POR CORREO</h2>
+            <h3 class="contact-info">Contactanos por nuestro formulario</h3>
+
+            <a href="#form">
+                <button class="contact-button">
+                    <h3>IR A FORMULARIO</h3>
+                </button>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="contact-section" id="form">
+
+
+    <div class="success-class" style="display: none;">
+        <p><b>...</b></p>
+    </div>
+
+    <div class="error-class" style="display: none;">
+        <p><b>...</b></p>
+    </div>
+
+
+
+    <form id="contact-form" class="contact-form">
+
+        <div class="contact-title">
+            <h1><b>Contactanos</b></h1>
+            <div class="divider"></div>
+        </div>
+
+        <div class="contact-data">
+            <div class="contact-first">
+
+                <div class="contact-input-container">
+                    <label for="Nombre">Nombre</label>
+                    <input class="contact-input" name="name" id="name" type="text" placeholder="Tu Nombre" required>
+                </div>
+
+                <div class="contact-input-container">
+                    <label for="Nombre">No. de teléfono</label>
+                    <input class="contact-input" name="number" id="number" type="text" placeholder="Numero de teléfono" required>
+                </div>
+            </div>
+
+            <div class="contact-second">
+                <label for="Nombre">Mensaje</label>
+                <textarea class="contact-textarea" name="message" id="message" type="text" placeholder="Mensaje" required></textarea>
+
+                <div id="recaptcha"></div>
+            </div>
+
+            <div style="max-height: 100%;">
+                <button class="contact-form-button" type="submit">
+                    Enviar
+                </button>
+            </div>
+        </div>
+    </form>
+</section>
+
+<script>
+    const formSection = document.getElementById('form');
+    let eventListenerReady = false;
+
+    function onloadCallback() {
+        let captcha = document.querySelector('#recaptcha');
+        const contactSecond = document.querySelector('.contact-second');
+        window.addEventListener('resize', checkForWidth);
+
+        let captchaId;
+
+        if (window.innerWidth <= 450){
+
+            captchaId = grecaptcha.render(captcha, {
+                "sitekey": "6LeENfsZAAAAANTwBeZJdaalmk_vFpmKKV41FVTr",
+                "size": "compact"
+            });
+
+        } else if (window.innerWidth > 450) {
+
+            captchaId = grecaptcha.render(captcha, {
+                "sitekey": "6LeENfsZAAAAANTwBeZJdaalmk_vFpmKKV41FVTr",
+                "size": "normal"
+            });
+        }
+
+
+        function checkForWidth() {
+
+            if (window.innerWidth <= 450) {
+
+                captcha.remove();
+
+                captcha = document.createElement("div");
+                captcha.id = "recaptcha"
+
+                contactSecond.appendChild(captcha)
+
+                grecaptcha.reset(captchaId);
+                grecaptcha.render(captcha, {
+                    "sitekey": "6LeENfsZAAAAANTwBeZJdaalmk_vFpmKKV41FVTr",
+                    "size": "compact"
+                });
+
+            } else if (window.innerWidth > 450) {
+
+                captcha.remove();
+
+                captcha = document.createElement("div");
+                captcha.id = "recaptcha"
+
+                contactSecond.appendChild(captcha)
+
+                grecaptcha.reset(captchaId);
+                grecaptcha.render(captcha, {
+                    "sitekey": "6LeENfsZAAAAANTwBeZJdaalmk_vFpmKKV41FVTr",
+                    "size": "normal"
+                });
+
+            }
+        }
+
+        if (!eventListenerReady) {
+
+            const contactForm = document.querySelector('.contact-form');
+
+            const contactName = contactForm.querySelector('#name');
+            const contactNumber = contactForm.querySelector('#number');
+            const contactMessage = contactForm.querySelector('#message');
+            const captchaInput = document.querySelector('#g-recaptcha-response');
+
+            contactForm.addEventListener('submit', (event) => {
+
+                event.preventDefault();
+
+                    fetch('/email', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json, text/plain, */*',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            name: contactName.value,
+                            number: contactNumber.value,
+                            message: contactMessage.value,
+                            captcha: captchaInput.value
+                        })
+                    })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        let success = document.querySelector('.success-class');
+                        let successText = success.getElementsByTagName('b')[0];
+                        let error = document.querySelector('.error-class');
+                        let errorText = error.getElementsByTagName('b')[0];
+
+
+                        if (data.success || data.success == false) {
+
+                            if (data.success === true) {
+
+                                successText.textContent = "Mensaje Enviado!"
+                                error.style.display = 'none';
+                                success.style.display = 'block'
+                                formSection.scrollTop = 0;
+
+                            } else if (data.success === false) {
+
+                                console.log(errorText)
+
+                                errorText.textContent = data.msg;
+                                success.style.display = 'none';
+                                error.style.display = 'block'
+                                formSection.scrollTop = 0;
+
+                            }
+
+                        } else {
+                            errorText.textContent = 'Perdon, hubo un error';
+                            success.style.display = 'none'
+                            error.style.display = 'block';
+                            formSection.scrollTop = 0;
+
+                        }
+                    });
+            });
+
+            eventListenerReady = true;
+        }
+
+    }
+
+</script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>

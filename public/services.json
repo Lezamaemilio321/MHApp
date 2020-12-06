@@ -1,0 +1,98 @@
+{
+    "services": [
+        {
+            "name": "Relajante",
+            "price": 30,
+            "atHome": "No",
+            "image": "/images/relaxing.jpg",
+            "duration": "1 / 2",
+            "id": 1,
+            "basic": true
+        },
+        {
+            "name": "Tejido profundo",
+            "price": 30,
+            "atHome": "No",
+            "image": "/images/deep-tissue.jpg",
+            "duration": "1 / 2",
+            "id": 2,
+            "basic": true
+        },
+        {
+            "name": "Reflexologia",
+            "price": 30,
+            "atHome": "No",
+            "image": "/images/reflexology.jpg",
+            "duration": "1 / 2",
+            "id": 3,
+            "basic": true
+        },
+        {
+            "name": "Terapéutico",
+            "price": 30,
+            "atHome": "No",
+            "image": "/images/therapeutic.jpg",
+            "duration": "1 / 2",
+            "id": 4,
+            "basic": true
+        },
+        {
+            "name": "Deportivo",
+            "price": 30,
+            "atHome": "No",
+            "image": "/images/sport.jpg",
+            "duration": "1 / 2",
+            "id": 5,
+            "basic": true
+        },
+        {
+            "name": "Sueco",
+            "price": 30,
+            "atHome": "No",
+            "image": "/images/swedish.jpg",
+            "duration": "1 / 2",
+            "id": 6,
+            "basic": true
+        },
+        {
+            "name": "Piedras calientes",
+            "price": 70,
+            "atHome": "No",
+            "image": "/images/hot-stone.jpg",
+            "duration": 1.5,
+            "id": 7
+        },
+        {
+            "name": "Prenatal",
+            "price": 35,
+            "atHome": "No",
+            "image": "/images/pregnant.jpg",
+            "duration": 1,
+            "id": 8
+        },
+        {
+            "name": "4 manos",
+            "price": 70,
+            "atHome": "No",
+            "image": "/images/4-hands.jpg",
+            "duration": 1,
+            "id": 9
+        },
+        {
+            "name": "Shiatsu",
+            "price": 45,
+            "atHome": "No",
+            "image": "/images/shiatsu.jpg",
+            "duration": 1,
+            "id": 10
+        },
+        {
+            "name": "Linfático",
+            "price": 70,
+            "atHome": "No",
+            "image": "/images/lymphatic.jpg",
+            "duration": 1.3,
+            "id": 11
+        }
+    ]
+}

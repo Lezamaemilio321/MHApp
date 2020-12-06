@@ -1,0 +1,493 @@
+<div class="alert">
+    <h1>Alerta</h1>
+    <p>...</p>
+    
+    <div>
+        <button>Ok</button>
+    </div>
+</div>
+<div class="alert-background"></div>
+
+<section class="services-section">
+
+    <div class="basic-title-container">
+        <h1 class="title">Basicos </h1><span style="font-size: 0.8rem; color: rgba(172, 33, 33, 0.664);">(2 x $USD 50/ MXN 50)</span>
+    </div>
+    <br>
+
+    <div class="service-grid">
+        {{#each basics}}
+            <div class="service-card" data-service-id="{{ id }}">
+
+                <form class="service-popup" data-service-id-second={{ id }}>
+
+                    <div>
+                        <div class="service-title-container">
+                            <h1>{{ name }}</h1><span style="font-size: 0.8rem; color: rgba(172, 33, 33, 0.664);">(2 x $USD 50/ MXN 50)</span>
+                        </div>
+
+                        <br>
+                        <div class="divider"></div>
+                        <br>
+                        <div class="error-message">Error.</div>
+
+                        <label class="name-label" id="{{ @index }}" data-is-name="true" for="name">Nombre</label>
+
+                        <div class="name-container">
+                            <input onchange="notEmpty(event)" id="{{ @index }}" data-is-name="true" type="text" name="name" class="service-name" required>
+                        </div>
+
+                        <br>
+
+                        <label class="email-label" id="{{ @index }}" data-email-number="1" for="email">Correo Electronico</label>
+
+                        <div class="email-container">
+                            <input onchange="notEmpty(event)" id="{{ @index }}" data-email-number="1" type="email" name="email" class="service-email" required>
+                        </div>
+
+                        <br>
+
+                        <label class="email-label" id="{{ @index }}" data-email-number="2" for="confirm">Confirmar Correo Electronico</label>
+
+                        <div class="email-container">
+                            <input onchange="notEmpty(event)" id="{{ @index }}" data-email-number="2" type="email" name="confirm" class="service-email" required>
+                        </div>
+
+                        <br>
+                        <br>
+                        <br>
+
+                        <label for="people">Total de personas</label>
+
+                        <div class="select-container">
+                            <div>
+                                <select name="people" class="service-input basic" data-service-input-id={{ id }}>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                                <img src="/images/select-arrow.png" alt="seleccion">
+                            </div>
+                        </div>
+
+                        <br>
+                        <br>
+
+                        <label for="duration">Total de horas</label>
+
+                        <div class="select-container">
+                            <div>
+                                <select name="duration" class="service-input">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                                <img src="/images/select-arrow.png" alt="seleccion">
+                            </div>
+                        </div>
+
+
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+                    </div>
+
+                    <div class="total-container">
+                        <h3>Total: $<span>USD 30/MXN 570</span></h3>
+                    </div>
+
+                    <div style="display: flex; margin-top: 30px; justify-content: space-between;">
+                        <div class="cancel-button">Cancelar</div>
+
+                        <button type="submit" class="confirm-button" id="{{ id }}">Reserva</button>
+                    </div>
+
+                </form>
+
+
+                <div style="width: 100%">
+                    <img src="{{ image }}" class="service-image" alt="servicio">
+
+                    <div class="info-container">
+                        <h1>{{ name }}</h1>
+
+                        {{!-- <h3>Masaje en casa: {{ atHome }}</h3> --}}
+                        <h3>Duracion: {{ duration }} hrs.</h3>
+                        <h3 id="price">Precio: $<span>{{ price }}</span></h3>
+                    </div>
+                </div>
+
+                <div style="align-items: center;">
+                    <button class="book-button" id="{{ id }}" disabled>
+                        <h3><b>Reserva Ahora</b><h3>
+                    </button>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="divider"></div>
+
+    <h1 style="margin-top: 60px;" class="title">Especiales</h1>
+    <br>
+
+    <div class="service-grid">
+        {{#each nonBasics}}
+            <div class="service-card" data-service-id="{{ id }}">
+
+                <form class="service-popup">
+
+                    <div>
+                        <h1>{{ name }}</h1>
+                        <br>
+                        <div class="divider"></div>
+                        <br>
+                        <div class="error-message">Error.</div>
+
+                        <label class="name-label" id="{{ multiply @index 100 }}" data-is-name="true" for="name">Nombre</label>
+
+                        <div class="name-container">
+                            <input onchange="notEmpty(event)" id="{{ multiply @index 100 }}" data-is-name="true" type="text" name="name" class="service-name" required>
+                        </div>
+
+                        <br>
+
+                        <label class="email-label" id="{{ multiply @index 100 }}" data-email-number="1" for="email">Correo Electronico</label>
+
+                        <div class="email-container">
+                            <input onchange="notEmpty(event)" id="{{ multiply @index 100 }}" data-email-number="1" type="email" name="email" class="service-email" required>
+                        </div>
+
+                        <br>
+
+                        <label class="email-label" id="{{ multiply @index 100 }}" data-email-number="2" for="confirm">Confirmar Correo Electronico</label>
+
+                        <div class="email-container">
+                            <input onchange="notEmpty(event)" id="{{ multiply @index 100 }}" data-email-number="2" type="email" name="confirm" class="service-email" required>
+                        </div>
+
+                        <br>
+                        <br>
+                        <br>
+
+                        <label for="people">Total de personas</label>
+
+                        <div class="select-container">
+                            <div>
+                                <select name="people" class="service-input non-basic" data-service-input-id={{ id }}>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                                <img src="/images/select-arrow.png" alt="seleccion">
+                            </div>
+                        </div>
+
+                        <br>
+                        <br>
+
+                        <label for="duration">Total de horas</label>
+
+                        <div class="select-container">
+                            <div>
+                                <input style="outline: none;" type="number" name="duration" class="service-input" value="{{ duration }}" readonly></input>
+                            </div>
+                        </div>
+
+
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+                    </div>
+
+                    <div class="total-container">
+                        <h3>Total: $<span>...</span></h3>
+                    </div>
+
+                    <div style="display: flex; margin-top: 30px; justify-content: space-between;">
+                        <div class="cancel-button">Cancelar</div>
+
+                        <button type="submit" class="confirm-button" id="{{ id }}">Reserva</button>
+                    </div>
+
+                </form>
+
+
+                <div style="width: 100%">
+                    <img src="{{ image }}" class="service-image" alt="servicio">
+
+                    <div class="info-container">
+                        <h1>{{ name }}</h1>
+
+                        {{!-- <h3>Masaje en casa: {{ atHome }}</h3> --}}
+                        <h3>Duracion: {{ duration }} hrs.</h3>
+                        <h3 id="price">Precio: $<span>{{ price }}</span></h3>
+                    </div>
+                </div>
+
+                <div style="align-items: center;">
+                    <button class="book-button" id="{{ id }}" disabled>
+                        <h3><b>Reserva Ahora</b><h3>
+                    </button>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</section>
+
+<script>
+    const body = document.body;
+    const darkArea = document.querySelector('.alert-background');
+    const popupButtons = document.querySelectorAll('.book-button');
+
+    function initAlert () {
+        myAlert("Antes de reservar aquí, contáctanos para poder elegir el horario de tu cita, aquí pagaras un 50% de tu servicio y el 50% restante lo pagaras en nuestro establecimiento.");
+    }
+
+
+    for (let btn of popupButtons) {
+        btn.addEventListener('click', () => {
+            const serviceCard = document.querySelector(`[data-service-id~="${btn.id}"]`);
+            const popup = serviceCard.querySelector('.service-popup');
+            const cancelButton = popup.querySelector('.cancel-button');
+
+            popup.classList.add('active');
+            darkArea.classList.add('active');
+            body.classList.add('no-scroll');
+
+            darkArea.addEventListener('click', () => {
+                popup.classList.remove('active');
+                darkArea.classList.remove('active');
+                body.classList.remove('no-scroll');
+
+            });
+
+            cancelButton.addEventListener('click', () => {
+                popup.classList.remove('active');
+                darkArea.classList.remove('active');
+                body.classList.remove('no-scroll');
+
+            });
+
+        });
+    }
+
+    const emailLabelsNode = document.querySelectorAll('.email-label');
+    const nameLabelsNode = document.querySelectorAll('.name-label');
+    const emailLabels = [...emailLabelsNode];
+    const nameLabels = [...nameLabelsNode];
+
+    const labels = [...emailLabels, ...nameLabels]
+
+    function notEmpty(event) {
+
+        const labelsFinal = labels.filter(el => {
+            if (el.id == event.target.id) {
+                return el;
+            }
+        });
+
+        let label;
+
+        if (event.target.dataset.isName == "true") {
+
+            label = labelsFinal.find(el => {
+                return el.dataset.isName == "true";
+            });
+
+
+        } else {
+
+            label = labelsFinal.find(el => {
+
+                return el.dataset.emailNumber == event.target.dataset.emailNumber
+
+            });
+
+        }
+
+
+        event.target.classList.remove('empty');
+        label.classList.remove('empty');
+    }
+
+    const popups = document.querySelectorAll('.service-popup');
+    
+    (function () {
+
+        for (let _overlay of popups) {
+
+            let _clientY = null; // remember Y position on touch start
+
+            _overlay.addEventListener('touchstart', function (event) {
+                if (event.targetTouches.length === 1) {
+                    // detect single touch
+                    _clientY = event.targetTouches[0].clientY;
+                }
+            }, false);
+
+            _overlay.addEventListener('touchmove', function (event) {
+                if (event.targetTouches.length === 1) {
+                    // detect single touch
+                    disableRubberBand(event);
+                }
+            }, false);
+
+            function disableRubberBand(event) {
+                let clientY = event.targetTouches[0].clientY - _clientY;
+
+                if (_overlay.scrollTop === 0 && clientY > 0) {
+                    // element is at the top of its scroll
+                    event.preventDefault();
+                }
+
+                if (isOverlayTotallyScrolled() && clientY < 0) {
+                    //element is at the top of its scroll
+                    event.preventDefault();
+                }
+            }
+
+            function isOverlayTotallyScrolled() {
+                return _overlay.scrollHeight - _overlay.scrollTop <= _overlay.clientHeight;
+            }
+
+        }
+    }());
+
+    const basics = document.querySelectorAll('.basic');
+    const nonBasics = document.querySelectorAll('.non-basic');
+
+    for (let basic of basics) {
+
+        const serviceForm = document.querySelector(`[data-service-id~="${basic.dataset.serviceInputId}"]`);
+        const price = serviceForm.querySelector('#price').getElementsByTagName('span')[0].textContent;
+        const inputs = serviceForm.querySelectorAll('.service-input');
+        const inputsArray = [...inputs];
+        const totalElement = serviceForm.querySelector('.total-container').getElementsByTagName('span')[0];
+
+        let hasChanged = false;
+        let total = 0;
+
+        for (let inp of inputs) {
+
+            inp.addEventListener('change', (event) => {
+
+                const otherInput = inputsArray.find(el => el != event.target);
+
+                const firstInputEven = event.target.value % 2 == 0;
+                const secondInputEven = otherInput.value % 2 == 0;
+
+                if (event.target.dataset.serviceInputId) {
+
+                    if (otherInput.value == 2) {
+
+                        if (firstInputEven == false) {
+                            total = ((((event.target.value - 1) / 2) * 50) * 2) + 50;
+                            total = `USD ${total}/MXN ${total*19}`
+                        } else {
+                            total = ((event.target.value / 2) * 50) * 2;
+                            total = `USD ${total}/MXN ${total*19}`
+                        }
+
+                    } else if (otherInput.value == 1) {
+        
+                        if (firstInputEven == false) {
+                            total = ((((event.target.value - 1) / 2) * 50) + parseInt(price));
+                            total = `USD ${total}/MXN ${total*19}`
+                        } else {
+                            total = ((event.target.value / 2) * 50);
+                            total = `USD ${total}/MXN ${total*19}`
+                        }
+
+                    }
+
+                } else if (otherInput.dataset.serviceInputId) {
+
+
+                    if (event.target.value == 2) {
+
+                        if (secondInputEven == false) {
+                            total = ((((otherInput.value - 1) / 2) * 50) * 2) + 50;
+                            total = `USD ${total}/MXN ${total*19}`
+                        } else {
+                            total = ((otherInput.value / 2) * 50) * 2;
+                            total = `USD ${total}/MXN ${total*19}`
+                        }
+
+                    } else if (event.target.value == 1) {
+
+                        if (secondInputEven == false) {
+                            total = ((((otherInput.value - 1) / 2) * 50) + parseInt(price));
+                            total = `USD ${total}/MXN ${total*19}`
+                        } else {
+                            total = ((otherInput.value / 2) * 50);
+                            total = `USD ${total}/MXN ${total*19}`
+                        }
+
+                    }
+
+                }
+
+
+
+                if (event.target.value == 1 && otherInput.value == 1) {
+                    total = parseInt(price);
+                    total = `USD ${total}/MXN ${total*19}`
+                }
+
+
+                totalElement.textContent = total;
+            });
+
+        }
+    }
+
+    //
+
+    for (let nonbasic of nonBasics) {
+
+        const serviceForm = document.querySelector(`[data-service-id~="${nonbasic.dataset.serviceInputId}"]`);
+        const price = serviceForm.querySelector('#price').getElementsByTagName('span')[0].textContent;
+        const inputs = serviceForm.querySelectorAll('.service-input');
+        const inputsArray = [...inputs];
+        const totalElement = serviceForm.querySelector('.total-container').getElementsByTagName('span')[0];
+
+        let hasChanged = false;
+        let total = 0;
+
+        for (let inp of inputs) {
+
+            total = parseInt(price);
+            total = `USD ${total}/MXN ${total*19}`;
+
+            totalElement.textContent = total;
+
+
+            inp.addEventListener('change', (event) => {
+
+                const firstInputEven = event.target.value % 2 == 0;
+
+                if (!event.target.dataset.serviceInputId) {
+                    myAlert('Perdon, hubo un error.');
+                }
+
+
+                total = event.target.value * parseInt(price)
+                total = `USD ${total}/MXN ${total*19}`;
+
+                totalElement.textContent = total;
+            });
+
+        }
+    }
+
+</script>

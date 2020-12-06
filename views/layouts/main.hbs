@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+
+    <meta name="keywords" content="Masajes, Massages, Playa del Carmen">
+    <meta name="description" content="Empresa 100% Mexicana, dedicados a brindar un momento de tranquilidad, relajación y paz, ofreciendo Terapias de Masajes Profesionales">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <script src="/js/checkout.js" defer></script>
+
+    <title>Magic Hands</title>
+</head>
+<body onload="checkAlert()">
+    <header id="header">
+
+        <div class="toggle" onclick="toggle()"></div>
+
+        <a href="/" class="logo">
+            <img src="/images/logo.png" alt="Magic Hands">
+        </a>
+
+        <div class="h-list">
+            <a href="/servicios" class={{ services }} >Servicios</a>
+            <a href="/nosotros" class={{ us }} >Nosotros</a>
+            <a href="/contactanos" class={{ contact }} >Contactanos</a>
+        </div>
+
+        <div class="dark-area"></div>
+    </header>
+
+    {{{ body }}}
+
+    <footer id="footer">
+        <div>
+            <h5>
+                <small>Copyright © 2020 | Magic Hands.</small>
+            </h5>
+            {{!-- <div id="google_translate_element"></div> --}}
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        function toggle(){
+            const header = document.getElementById("header");
+            const darkArea = document.querySelector(".dark-area");
+            const body = document.body;
+
+            header.classList.toggle('active');
+            darkArea.classList.toggle('active');
+            body.classList.toggle('no-scroll');
+
+            darkArea.addEventListener('click', () => {
+                header.classList.remove('active');
+                darkArea.classList.remove('active');
+                body.classList.remove('no-scroll');
+            });
+        }
+
+        function checkAlert() {
+
+            try {
+                if (initAlert) {
+                    initAlert();
+                }
+            } catch {
+                //
+            }
+        }
+    </script>
+
+
+    {{!-- <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> --}}
+    <script type="text/javascript">
+        //function googleTranslateElementInit() {
+            //new google.translate.TranslateElement({pageLanguage: 'es'}, 'google_translate_element');
+        //}
+    </script>
+</body>
+</html>
