@@ -31,7 +31,7 @@
                         <br>
                         <div class="error-message">Error.</div>
 
-                        <label class="name-label" id="{{ @index }}" data-is-name="true" for="name">Nombre</label>
+                        <label class="name-label" id="{{ @index }}" data-is-name="true" for="name">Tu Nombre</label>
 
                         <div class="name-container">
                             <input onchange="notEmpty(event)" id="{{ @index }}" data-is-name="true" type="text" name="name" class="service-name" required>
@@ -116,8 +116,8 @@
                         <h1>{{ name }}</h1>
 
                         {{!-- <h3>Masaje en casa: {{ atHome }}</h3> --}}
-                        <h3>Duracion: {{ duration }} hrs.</h3>
-                        <h3 id="price">Precio: $<span>{{ price }}</span></h3>
+                        <h3>Duracion: 1hr. / 2hrs.</h3>
+                        <h3 id="price">Precio: $USD <span>{{ price }}</span></h3>
                     </div>
                 </div>
 
@@ -148,7 +148,7 @@
                         <br>
                         <div class="error-message">Error.</div>
 
-                        <label class="name-label" id="{{ multiply @index 100 }}" data-is-name="true" for="name">Nombre</label>
+                        <label class="name-label" id="{{ multiply @index 100 }}" data-is-name="true" for="name">Tu Nombre</label>
 
                         <div class="name-container">
                             <input onchange="notEmpty(event)" id="{{ multiply @index 100 }}" data-is-name="true" type="text" name="name" class="service-name" required>
@@ -230,7 +230,7 @@
 
                         {{!-- <h3>Masaje en casa: {{ atHome }}</h3> --}}
                         <h3>Duracion: {{ duration }} hrs.</h3>
-                        <h3 id="price">Precio: $<span>{{ price }}</span></h3>
+                        <h3 id="price">Precio: $USD <span>{{ price }}</span></h3>
                     </div>
                 </div>
 

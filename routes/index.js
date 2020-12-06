@@ -142,13 +142,36 @@ router.post('/purchase', async (req, res) => {
 
                     let productName;
                     let productPrice;
-    
-                    productName = `${serviceItem.name} (${req.body.purchase_info.duration}hrs.)`
-                    productPrice = serviceItem.price * req.body.purchase_info.duration;
-    
-                    const newPriceRounded = Math.round(productPrice * 100)
-    
-            
+
+                    if (serviceItem.basic) {
+
+                        if (req.body.purchase_info.duration != 1 && req.body.purchase_info.duration != 2) {
+                            return res.status(500).end();
+                        }
+
+                        productName = `${serviceItem.name} (${req.body.purchase_info.duration}hrs.)`
+                        productPrice = (serviceItem.price * parseInt(req.body.purchase_info.duration)) * req.body.purchase_info.people;
+
+                        productPrice = productPrice * 19;
+        
+                        const newPriceRounded = Math.round(productPrice * 100)
+
+                    } else {
+
+                        if (req.body.purchase_info.duration != serviceItem.duration) {
+                            return res.status(500).end();
+                        }
+
+                        productName = `${serviceItem.name} (${serviceItem.duration}hrs.)`
+                        productPrice = serviceItem.price * parseInt(req.body.purchase_info.people);
+
+                        productPrice = productPrice * 19;
+
+                        const newPriceRounded = Math.round(productPrice * 100)
+
+                    }
+
+
                     const product = {
         
                         price_data: {
@@ -172,8 +195,8 @@ router.post('/purchase', async (req, res) => {
                                     product
                                 ],
                                 mode: 'payment',
-                                success_url: 'http://127.0.0.1:3000/success?session_id={CHECKOUT_SESSION_ID}',
-                                cancel_url: 'http://127.0.0.1:3000/cancel',
+                                success_url: 'https://magichands.mx/success?session_id={CHECKOUT_SESSION_ID}',
+                                cancel_url: 'https://magichands.mx/cancel',
                                 metadata: {
                                     // atHome: true,
                                     serviceId: serviceItem.id,
@@ -292,7 +315,7 @@ router.get('/success', (req, res) => {
                             <h3 font-weight: 400;">
                                 Hola <b>${session.metadata.customerName}</b>, gracias por reservar con nosotros,
                                 presente este codigo en caja o por el telefono que puede encontrar en
-                                <a href="http://127.0.0.1:3000/contactanos">nuestra pagina</a>, para confirmar su compra.
+                                <a href="https://magichands.mx/contactanos">nuestra pagina</a>, para confirmar su compra.
                             </h3>
 
                             <h1 style="box-sizing: border-box; border: solid grey 1px; background-color: #6c6b6b30; padding: 20px; width: fit-content; border-radius: 2px;">${confirmationCode}</h1>

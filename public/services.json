@@ -5,7 +5,7 @@
             "price": 30,
             "atHome": "No",
             "image": "/images/relaxing.jpg",
-            "duration": "1 / 2",
+            "duration": "1",
             "id": 1,
             "basic": true
         },
@@ -14,7 +14,7 @@
             "price": 30,
             "atHome": "No",
             "image": "/images/deep-tissue.jpg",
-            "duration": "1 / 2",
+            "duration": "1",
             "id": 2,
             "basic": true
         },
@@ -23,7 +23,7 @@
             "price": 30,
             "atHome": "No",
             "image": "/images/reflexology.jpg",
-            "duration": "1 / 2",
+            "duration": "1",
             "id": 3,
             "basic": true
         },
@@ -32,7 +32,7 @@
             "price": 30,
             "atHome": "No",
             "image": "/images/therapeutic.jpg",
-            "duration": "1 / 2",
+            "duration": "1",
             "id": 4,
             "basic": true
         },
@@ -41,7 +41,7 @@
             "price": 30,
             "atHome": "No",
             "image": "/images/sport.jpg",
-            "duration": "1 / 2",
+            "duration": "1",
             "id": 5,
             "basic": true
         },
@@ -50,7 +50,7 @@
             "price": 30,
             "atHome": "No",
             "image": "/images/swedish.jpg",
-            "duration": "1 / 2",
+            "duration": "1",
             "id": 6,
             "basic": true
         },
