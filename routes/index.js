@@ -142,7 +142,6 @@ router.post('/purchase', async (req, res) => {
 
                     let productName;
                     let productPrice;
-
                     let newPriceRounded;
 
                     if (serviceItem.basic) {
