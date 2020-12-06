@@ -143,6 +143,8 @@ router.post('/purchase', async (req, res) => {
                     let productName;
                     let productPrice;
 
+                    let newPriceRounded;
+
                     if (serviceItem.basic) {
 
                         if (req.body.purchase_info.duration != 1 && req.body.purchase_info.duration != 2) {
@@ -154,7 +156,7 @@ router.post('/purchase', async (req, res) => {
 
                         productPrice = productPrice * 19;
         
-                        const newPriceRounded = Math.round(productPrice * 100)
+                        newPriceRounded = Math.round(productPrice * 100);
 
                     } else {
 
@@ -167,10 +169,9 @@ router.post('/purchase', async (req, res) => {
 
                         productPrice = productPrice * 19;
 
-                        const newPriceRounded = Math.round(productPrice * 100)
+                        newPriceRounded = Math.round(productPrice * 100);
 
                     }
-
 
                     const product = {
         
