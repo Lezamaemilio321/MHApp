@@ -392,20 +392,20 @@
 
                         if (firstInputEven == false) {
                             total = ((((event.target.value - 1) / 2) * 50) * 2) + 50;
-                            total = `USD ${total}/MXN ${total*19}`
+                            total = `USD ${total}/MXN ${total*19/2}`
                         } else {
                             total = ((event.target.value / 2) * 50) * 2;
-                            total = `USD ${total}/MXN ${total*19}`
+                            total = `USD ${total}/MXN ${total*19/2}`
                         }
 
                     } else if (otherInput.value == 1) {
         
                         if (firstInputEven == false) {
                             total = ((((event.target.value - 1) / 2) * 50) + parseInt(price));
-                            total = `USD ${total}/MXN ${total*19}`
+                            total = `USD ${total}/MXN ${total*19/2}`
                         } else {
                             total = ((event.target.value / 2) * 50);
-                            total = `USD ${total}/MXN ${total*19}`
+                            total = `USD ${total}/MXN ${total*19/2}`
                         }
 
                     }
@@ -417,20 +417,20 @@
 
                         if (secondInputEven == false) {
                             total = ((((otherInput.value - 1) / 2) * 50) * 2) + 50;
-                            total = `USD ${total}/MXN ${total*19}`
+                            total = `USD ${total}/MXN ${total*19/2}`
                         } else {
                             total = ((otherInput.value / 2) * 50) * 2;
-                            total = `USD ${total}/MXN ${total*19}`
+                            total = `USD ${total}/MXN ${total*19/2}`
                         }
 
                     } else if (event.target.value == 1) {
 
                         if (secondInputEven == false) {
                             total = ((((otherInput.value - 1) / 2) * 50) + parseInt(price));
-                            total = `USD ${total}/MXN ${total*19}`
+                            total = `USD ${total}/MXN ${total*19/2}`
                         } else {
                             total = ((otherInput.value / 2) * 50);
-                            total = `USD ${total}/MXN ${total*19}`
+                            total = `USD ${total}/MXN ${total*19/2}`
                         }
 
                     }
@@ -439,7 +439,7 @@
 
                 if (event.target.value == 1 && otherInput.value == 1) {
                     total = parseInt(price);
-                    total = `USD ${total}/MXN ${total*19}`
+                    total = `USD ${total}/MXN ${total*19/2}`
                 }
 
 
@@ -469,7 +469,7 @@
         for (let inp of inputs) {
 
             total = parseInt(price);
-            total = `USD ${total}/MXN ${total*19}`;
+            total = `USD ${total}/MXN ${total*19/2}`;
 
             totalElement.textContent = total;
 
@@ -482,7 +482,7 @@
 
 
                 total = event.target.value * parseInt(price)
-                total = `USD ${total}/MXN ${total*19}`;
+                total = `USD ${total}/MXN ${total*19/2}`;
 
                 totalElement.textContent = total;
             }

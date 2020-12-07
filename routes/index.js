@@ -156,7 +156,9 @@ router.post('/purchase', async (req, res) => {
 
                         if (req.body.purchase_info.duration == 2) {
 
-                            if (firstInputEven == false) {
+                            const durationEven = req.body.purchase_info.duration % 2 == 0;
+
+                            if (durationEven == false) {
                                 productPrice = ((((req.body.purchase_info.people - 1) / 2) * 50) * 2) + 50;
                             } else {
                                 productPrice = ((req.body.purchase_info.people / 2) * 50) * 2;
@@ -164,7 +166,7 @@ router.post('/purchase', async (req, res) => {
     
                         } else if (req.body.purchase_info.duration == 1) {
             
-                            if (firstInputEven == false) {
+                            if (durationEven == false) {
                                 productPrice = ((((req.body.purchase_info.people - 1) / 2) * 50) + serviceItem.price);
                             } else {
                                 productPrice = ((req.body.purchase_info.people / 2) * 50);
@@ -174,7 +176,7 @@ router.post('/purchase', async (req, res) => {
 
                         productPrice = productPrice * 19;
         
-                        newPriceRounded = Math.round(productPrice * 100);
+                        newPriceRounded = Math.round(productPrice * 100) / req.body.purchase_info.people;
 
                     } else {
 
@@ -187,7 +189,7 @@ router.post('/purchase', async (req, res) => {
 
                         productPrice = productPrice * 19;
 
-                        newPriceRounded = Math.round(productPrice * 100);
+                        newPriceRounded = Math.round(productPrice * 100) / req.body.purchase_info.people;
 
                     }
 
