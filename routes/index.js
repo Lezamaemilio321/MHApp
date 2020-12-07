@@ -176,7 +176,7 @@ router.post('/purchase', async (req, res) => {
 
                         productPrice = productPrice * 19;
         
-                        newPriceRounded = Math.round(productPrice * 100) / req.body.purchase_info.people;
+                        newPriceRounded = (Math.round(productPrice * 100) / req.body.purchase_info.people) / 2;
 
                     } else {
 
@@ -189,7 +189,7 @@ router.post('/purchase', async (req, res) => {
 
                         productPrice = productPrice * 19;
 
-                        newPriceRounded = Math.round(productPrice * 100) / req.body.purchase_info.people;
+                        newPriceRounded = (Math.round(productPrice * 100) / req.body.purchase_info.people) / 2;
 
                     }
 
