@@ -11,7 +11,7 @@
 <section class="services-section">
 
     <div class="basic-title-container">
-        <h1 class="title">Basicos </h1><span style="font-size: 0.8rem; color: rgba(172, 33, 33, 0.664);">(2 x $USD 50/ MXN 50)</span>
+        <h1 class="title">Basicos </h1><span style="font-size: 0.8rem; color: rgba(172, 33, 33, 0.664);">(2 x $USD 50)</span>
     </div>
     <br>
 
@@ -61,7 +61,7 @@
 
                         <div class="select-container">
                             <div>
-                                <select name="people" class="service-input basic" data-service-input-id={{ id }}>
+                                <select name="people" class="service-input basic item-select" data-service-input-id={{ id }}>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -97,7 +97,7 @@
                     </div>
 
                     <div class="total-container">
-                        <h3>Total: $<span>USD 15/MXN 285</span><b> (50%)</b></h3>
+                        <h3>Total: $<span>USD 11/MXN 200</span><b> (Adelanto)</b></h3>
                     </div>
 
                     <div style="display: flex; margin-top: 30px; justify-content: space-between;">
@@ -178,7 +178,7 @@
 
                         <div class="select-container">
                             <div>
-                                <select name="people" class="service-input non-basic" data-service-input-id={{ id }}>
+                                <select name="people" class="service-input non-basic item-select" data-service-input-id={{ id }}>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -210,7 +210,7 @@
                     </div>
 
                     <div class="total-container">
-                        <h3>Total: $<span>...</span> <b>(50%)</b></h3>
+                        <h3>Total: $<span>USD 11/MXN 200</span><b> (Adelanto)</b></h3>
                     </div>
 
                     <div style="display: flex; margin-top: 30px; justify-content: space-between;">
@@ -250,7 +250,7 @@
     const popupButtons = document.querySelectorAll('.book-button');
 
     function initAlert () {
-        myAlert("Antes de reservar aquí, contáctanos para poder elegir el horario de tu cita, aquí pagaras un 50% de tu servicio y el 50% restante lo pagaras en nuestro establecimiento.");
+        myAlert("Antes de reservar aquí, contáctanos para poder elegir el horario de tu cita, aquí pagaras un porcentaje de tu servicio y la cantidad restante la pagaras en nuestro establecimiento.");
     }
 
 
@@ -363,144 +363,99 @@
         }
     }());
 
-    const basics = document.querySelectorAll('.basic');
-    const nonBasics = document.querySelectorAll('.non-basic');
 
-    for (let basic of basics) {
+    // const basics = document.querySelectorAll('.basic');
+    // const nonBasics = document.querySelectorAll('.non-basic');
 
-        const serviceForm = document.querySelector(`[data-service-id~="${basic.dataset.serviceInputId}"]`);
-        const price = serviceForm.querySelector('#price').getElementsByTagName('span')[0].textContent;
-        const inputs = serviceForm.querySelectorAll('.service-input');
-        const inputsArray = [...inputs];
-        const totalElement = serviceForm.querySelector('.total-container').getElementsByTagName('span')[0];
+//  for (let basic of basics) {
 
-        let hasChanged = false;
-        let total = 0;
+//     const serviceForm = document.querySelector(`[data-service-id~="${basic.dataset.serviceInputId}"]`);
+//     const price = serviceForm.querySelector('#price').getElementsByTagName('span')[0].textContent;
+//     const inputs = serviceForm.querySelectorAll('.service-input');
+//     const inputsArray = [...inputs];
+//     const totalElement = serviceForm.querySelector('.total-container').getElementsByTagName('span')[0];
 
-        for (let inp of inputs) {
+//     let hasChanged = false;
+//     let total = 0;
 
-            function changeTotal(inputEl) {
+//     for (let inp of inputs) {
 
-                if (inputEl.target) {
-                    inputEl = inputEl.target;
-                }
+//         function changeTotal(inputEl) {
 
-                const otherInput = inputsArray.find(el => el != inputEl);
+//             if (inputEl.target) {
+//                 inputEl = inputEl.target;
+//             }
 
-                const firstInputEven = inputEl.value % 2 == 0;
-                const secondInputEven = otherInput.value % 2 == 0;
+//             const otherInput = inputsArray.find(el => el != inputEl);
 
-                if (inputEl.dataset.serviceInputId) {
+//             const firstInputEven = inputEl.value % 2 == 0;
+//             const secondInputEven = otherInput.value % 2 == 0;
 
-                    if (otherInput.value == 2) {
+//             if (inputEl.dataset.serviceInputId) {
 
-                        if (firstInputEven == false) {
-                            total = ((((inputEl.value - 1) / 2) * 50) * 2) + 50;
-                            total = `USD ${total/2}/MXN ${total*19/2}`
-                        } else {
-                            total = ((inputEl.value / 2) * 50) * 2;
-                            total = `USD ${total/2}/MXN ${total*19/2}`
-                        }
+//                 if (otherInput.value == 2) {
 
-                    } else if (otherInput.value == 1) {
-        
-                        if (firstInputEven == false) {
-                            total = ((((inputEl.value - 1) / 2) * 50) + parseInt(price));
-                            total = `USD ${total/2}/MXN ${total*19/2}`
-                        } else {
-                            total = ((inputEl.value / 2) * 50);
-                            total = `USD ${total/2}/MXN ${total*19/2}`
-                        }
+//                     if (firstInputEven == false) {
+//                         total = ((((inputEl.value - 1) / 2) * 50) * 2) + 50;
+//                         total = `USD ${total/2}/MXN ${total*19/2}`
+//                     } else {
+//                         total = ((inputEl.value / 2) * 50) * 2;
+//                         total = `USD ${total/2}/MXN ${total*19/2}`
+//                     }
 
-                    }
+//                 } else if (otherInput.value == 1) {
+    
+//                     if (firstInputEven == false) {
+//                         total = ((((inputEl.value - 1) / 2) * 50) + parseInt(price));
+//                         total = `USD ${total/2}/MXN ${total*19/2}`
+//                     } else {
+//                         total = ((inputEl.value / 2) * 50);
+//                         total = `USD ${total/2}/MXN ${total*19/2}`
+//                     }
 
-                } else if (otherInput.dataset.serviceInputId) {
+//                 }
 
-
-                    if (inputEl.value == 2) {
-
-                        if (secondInputEven == false) {
-                            total = ((((otherInput.value - 1) / 2) * 50) * 2) + 50;
-                            total = `USD ${total/2}/MXN ${total*19/2}`
-                        } else {
-                            total = ((otherInput.value / 2) * 50) * 2;
-                            total = `USD ${total/2}/MXN ${total*19/2}`
-                        }
-
-                    } else if (inputEl.value == 1) {
-
-                        if (secondInputEven == false) {
-                            total = ((((otherInput.value - 1) / 2) * 50) + parseInt(price));
-                            total = `USD ${total/2}/MXN ${total*19/2}`
-                        } else {
-                            total = ((otherInput.value / 2) * 50);
-                            total = `USD ${total/2}/MXN ${total*19/2}`
-                        }
-
-                    }
-
-                }
-
-                if (inputEl.value == 1 && otherInput.value == 1) {
-                    total = parseInt(price);
-                    total = `USD ${total/2}/MXN ${total*19/2}`
-                }
+//             } else if (otherInput.dataset.serviceInputId) {
 
 
-                totalElement.textContent = total;
+//                 if (inputEl.value == 2) {
 
-            }
-            changeTotal(inp);
+//                     if (secondInputEven == false) {
+//                         total = ((((otherInput.value - 1) / 2) * 50) * 2) + 50;
+//                         total = `USD ${total/2}/MXN ${total*19/2}`
+//                     } else {
+//                         total = ((otherInput.value / 2) * 50) * 2;
+//                         total = `USD ${total/2}/MXN ${total*19/2}`
+//                     }
 
-            inp.addEventListener('change', changeTotal);
+//                 } else if (inputEl.value == 1) {
 
-        }
-    }
+//                     if (secondInputEven == false) {
+//                         total = ((((otherInput.value - 1) / 2) * 50) + parseInt(price));
+//                         total = `USD ${total/2}/MXN ${total*19/2}`
+//                     } else {
+//                         total = ((otherInput.value / 2) * 50);
+//                         total = `USD ${total/2}/MXN ${total*19/2}`
+//                     }
 
-    //
+//                 }
 
-    for (let nonbasic of nonBasics) {
+//             }
 
-        const serviceForm = document.querySelector(`[data-service-id~="${nonbasic.dataset.serviceInputId}"]`);
-        const price = serviceForm.querySelector('#price').getElementsByTagName('span')[0].textContent;
-        const inputs = serviceForm.querySelectorAll('.service-input');
-        const inputsArray = [...inputs];
-        const totalElement = serviceForm.querySelector('.total-container').getElementsByTagName('span')[0];
-
-        let hasChanged = false;
-        let total = 0;
-
-        for (let inp of inputs) {
-
-            total = parseInt(price);
-            total = `USD ${total/2}/MXN ${total*19/2}`;
-
-            totalElement.textContent = total;
-
-            function changeTotal(inputEl) {
-
-                if (inputEl.target) {
-                    inputEl = inputEl.target;
-                }
-
-                const firstInputEven = inputEl.value % 2 == 0;
-
-                if (!inputEl.dataset.serviceInputId) {
-                    return;
-                }
+//             if (inputEl.value == 1 && otherInput.value == 1) {
+//                 total = parseInt(price);
+//                 total = `USD ${total/2}/MXN ${total*19/2}`
+//             }
 
 
-                total = inputEl.value * parseInt(price)
-                total = `USD ${total/2}/MXN ${total*19/2}`;
+//             totalElement.textContent = total;
 
-                totalElement.textContent = total;
-            }
-            changeTotal(inp);
+//         }
+//         changeTotal(inp);
 
+//         inp.addEventListener('change', changeTotal);
 
-            inp.addEventListener('change', changeTotal);
-
-        }
-    }
+//     }
+// }
 
 </script>

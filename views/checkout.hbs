@@ -2,15 +2,20 @@
 
     <div>
         <h1>Gracias por su compra!</h1>
+				<h3 font-weight: 400;">
+						Gracias por reservar con nosotros,
+						presente este codigo en caja o por el telefono que puede encontrar en
+						en nuestra pagina de contacto, para confirmar su compra. Tambien puede encontrar este codigo en su correo electronico.
+				</h3>
 
-        <h3>Cheque su correo electrónico y contáctenos para terminar su reservación.</h3>
+				<h1 style="box-sizing: border-box; border: solid grey 1px; background-color: #6c6b6b30; padding: 20px; width: fit-content; border-radius: 2px;">{{code}}</h1>
 
-        <p>
-            Nombre de servicio: {{ item.name }}, <br>
-            Numero de horas: {{ duration }}, <br>
-            Numero de personas: {{ quantity }},
-        </p>
-    </div>
+				<h3 style="font-weight: 700; margin-bottom: 10px">Usted Ordeno:</h3>
+				<p>
+				Servicio: {{item.name}}, <br>
+				Numero de horas: {{duration}} hrs., <br>
+				Numero de personas: {{quantity}},
+				</p>
 
     {{!-- <img src="{{ item.image }}" alt="imagen"> --}}
 </section>

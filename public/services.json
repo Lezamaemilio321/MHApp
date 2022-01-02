@@ -3,6 +3,7 @@
         {
             "name": "Relajante",
             "price": 30,
+            "priceMxn": 570,
             "atHome": "No",
             "image": "/images/relaxing.jpg",
             "duration": "1",
@@ -12,6 +13,7 @@
         {
             "name": "Tejido profundo",
             "price": 30,
+            "priceMxn": 570,
             "atHome": "No",
             "image": "/images/deep-tissue.jpg",
             "duration": "1",
@@ -21,6 +23,7 @@
         {
             "name": "Reflexologia",
             "price": 30,
+            "priceMxn": 570,
             "atHome": "No",
             "image": "/images/reflexology.jpg",
             "duration": "1",
@@ -30,6 +33,7 @@
         {
             "name": "Terapéutico",
             "price": 30,
+            "priceMxn": 570,
             "atHome": "No",
             "image": "/images/therapeutic.jpg",
             "duration": "1",
@@ -39,6 +43,7 @@
         {
             "name": "Deportivo",
             "price": 30,
+            "priceMxn": 570,
             "atHome": "No",
             "image": "/images/sport.jpg",
             "duration": "1",
@@ -48,6 +53,7 @@
         {
             "name": "Sueco",
             "price": 30,
+            "priceMxn": 570,
             "atHome": "No",
             "image": "/images/swedish.jpg",
             "duration": "1",
@@ -57,6 +63,7 @@
         {
             "name": "Piedras calientes",
             "price": 70,
+            "priceMxn": 1330,
             "atHome": "No",
             "image": "/images/hot-stone.jpg",
             "duration": 1.5,
@@ -65,6 +72,7 @@
         {
             "name": "Prenatal",
             "price": 35,
+            "priceMxn": 665,
             "atHome": "No",
             "image": "/images/pregnant.jpg",
             "duration": 1,
@@ -73,6 +81,7 @@
         {
             "name": "4 manos",
             "price": 70,
+            "priceMxn": 1330,
             "atHome": "No",
             "image": "/images/4-hands.jpg",
             "duration": 1,
@@ -81,6 +90,7 @@
         {
             "name": "Shiatsu",
             "price": 45,
+            "priceMxn": 855,
             "atHome": "No",
             "image": "/images/shiatsu.jpg",
             "duration": 1,
@@ -89,6 +99,7 @@
         {
             "name": "Linfático",
             "price": 70,
+            "priceMxn": 1330,
             "atHome": "No",
             "image": "/images/lymphatic.jpg",
             "duration": 1.3,
